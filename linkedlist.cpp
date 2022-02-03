@@ -20,6 +20,23 @@ int sum(node* p){
     else
     return sum(p->next)+p->data;
 }
+void deleteat(int k,node* &head){
+    node* p =head;
+    if(k==1){
+        head=head->next;
+        delete p;
+        return;
+    }
+    
+    int t=1;
+    while(t!=k-1){
+        p=p->next;
+        t++;
+    }
+    node* a=p->next;
+    p->next=p->next->next;
+    delete a;
+}
 void insert(int val,node* &head){
     node* p = new node;
     node* temp=head;
@@ -75,6 +92,7 @@ void display(node* head){
         temp = temp->next;
     }
      }
+     cout<<endl;
 }
 int main()
 {   
@@ -86,8 +104,11 @@ int main()
     insertathead(head,1);
     insertat(head,40,5);
     display(head);
-    cout<<sum(head);
-    cout<<maxele(head);
-    cout<<"the element is present at"<<search(70,head);
+    deleteat(1,head);
+    display(head);
+    
+    // cout<<sum(head);
+    // cout<<maxele(head);
+    // cout<<"the element is present at"<<search(70,head);
     return 0;
 }
