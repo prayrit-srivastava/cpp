@@ -22,18 +22,6 @@ int key = 1 ;
 int n = sizeof(arr);
 std::cout<<binarysearch(arr,n,key)<<std::endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 //recursive meathod
 #include <iostream>
 int binarysearch(int*,int,int,int);
